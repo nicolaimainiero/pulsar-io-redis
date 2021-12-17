@@ -1,0 +1,5 @@
+configs:
+  connectionName: "redis"
+  host: "redis"
+  port: 6379
+  channelName: "pulsar"

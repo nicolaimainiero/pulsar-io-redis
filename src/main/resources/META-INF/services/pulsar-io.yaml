@@ -1,0 +1,4 @@
+name: redis
+description: Reads data from Redis
+sourceClass: de.mainiero.pulsar.io.redis.source.RedisSource
+sourceConfigClass: de.mainiero.pulsar.io.redis.source.RedisSourceConfig

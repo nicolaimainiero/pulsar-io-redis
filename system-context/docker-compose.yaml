@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  pulsar:
+    image: apachepulsar/pulsar:2.9.0
+    command: bin/pulsar standalone
+    hostname: pulsar
+    ports:
+      - "8080:8080"
+      - "6650:6650"
+    restart: unless-stopped
+    volumes:
+      - "pulsardata:/pulsar/data"
+      - "pulsarconf:/pulsar/conf"
+      - "./redis-source.yaml:/opt/redis-source.yaml"
+      - "./io/:/opt/io/"
+    networks:
+      - pulsar-backend
+  redis:
+    image: redis:6.2.0-alpine
+    hostname: redis
+    ports:
+      - 6379:6379
+    networks:
+      - pulsar-backend
+
+networks:
+  pulsar-backend:
+    name: pulsar-backend
+
+volumes:
+  pulsardata:
+  pulsarconf:
