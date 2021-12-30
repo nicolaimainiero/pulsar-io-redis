@@ -140,3 +140,5 @@ buildNumber.properties
 .classpath
 
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij+all,maven
+/article.html
+/README.html

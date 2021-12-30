@@ -7,27 +7,7 @@ To start the system context with Apache Pulsar, UI and Redis run in `./system-co
 ```
 docker compose up
 ```
-
-Then, to access the UI at http://localhost:9527 create an user and password with the following command:
-
-```shell
-CSRF_TOKEN=$(curl http://localhost:9527/pulsar-manager/csrf-token)
-curl \
-    -H "X-XSRF-TOKEN: $CSRF_TOKEN" \
-    -H "Cookie: XSRF-TOKEN=$CSRF_TOKEN;" \
-    -H 'Content-Type: application/json' \
-    -X PUT http://localhost:9527/pulsar-manager/users/superuser \
-    -d '{"name": "admin", "password": "apachepulsar", "description": "test", "email": "username@test.org"}'
-```
-
-Log in and then create a new environment with the following parameter:
-
-| Parameter        | Value |
-|------------------|-------|
-| environment name | localhost |
-| service URL      |     http://pulsar:8080  |
-
-Create new namespace in sample tenant and call it sample.
+Create new namespace in _sample_ tenant and call it _sample_.
 
 ```
 docker exec -it pulsar-io-redis-pulsar-1 \
